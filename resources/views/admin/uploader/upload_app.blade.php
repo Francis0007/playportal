@@ -121,8 +121,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <h5 for="compressed_file">Compressed File (ZIP)</h5>
-                                <input id="compressed_file" name="compressed_file" type="file" required="" class="form-control">
+                                <h5 for="compressed_file">File (.zip, .exe, .apk, .rar etc)</h5>
+                                <input id="compressed_file" name="file" type="file" required="" class="form-control">
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
