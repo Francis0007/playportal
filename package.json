@@ -24,6 +24,6 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "vendor": "^0.0.2"
+        "chart.js": "^4.4.2"
     }
 }

@@ -1,0 +1,142 @@
+body {
+    background-image: url(../../assets/images/bgimg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: max-content;
+    font-family: 'Poppins', sans-serif;
+}
+.boxes{
+    display: flex;
+    width: 360px;
+    justify-content: center;
+    gap: 80px;
+    margin-top: 80px;
+    font-family: 'Poppins', sans-serif;
+}
+
+@media screen and (min-width: 1200px) {
+.mobileboxes {
+    display: none;
+}
+}
+@media screen and (max-width: 767px) {
+    .boxes {
+        display: none;
+    }
+    .mobileboxes {
+        display: flex;
+        margin-top: 0px;
+        margin-left: 0px;
+        justify-content: space-around;
+        font-family: 'Poppins', sans-serif;
+    }
+}
+.other{
+    display: flex;
+}
+
+.box {
+    background-image: linear-gradient( to top,
+    #FFA101, #ffD080);
+    padding: 5px;
+    height: 180px;
+    width: 180px;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.box h1 {
+    color: white;
+}
+
+.boxx {
+display: none;
+}
+
+.box h1 {
+    display: none;
+}
+
+.mobilebox {
+    background-image: linear-gradient( to top,
+    #FFA101, #ffD080);
+    padding: 5px;
+    height: 135px;
+    width: 135px;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.mobilebox h1 {
+    color: white;
+}
+.container h1{
+font-size: 17px;
+width: 190px;
+margin-top: 10px;
+font-family: 'Poppins', sans-serif;
+}
+
+.containerr h1{
+color: transparent;
+margin-left: 50px;
+    }
+.fa-gamepad {
+    font-size: 90px;
+    margin-top: 20px;
+    color: white;
+}
+.fa-chart-bar {
+    font-size: 90px;
+    margin-top: 20px;
+    color: white;
+}
+.fa-chart-line {
+    font-size: 90px;
+    margin-top: 20px;
+    color: white;
+}
+.fa-tasks {
+    font-size: 90px;
+    margin-top: 20px;
+    color: white;
+}
+
+
+.stylee {
+    margin-top: -20px;
+}
+.stylee1 {
+    margin-top: -15px;
+}
+.stylee2 {
+    margin-top: 5px;
+}
+.stylee3 {
+    margin-top: 30px;
+}
+.stylee4 {
+    margin-top:20px;
+}
+
+.styleee {
+    margin-top: 15px;
+}
+.styleee1 {
+    margin-top: 19px;
+}
+.styleee2 {
+    margin-top: 28px;
+}
+.styleee3 {
+    margin-top: 19px;
+}
+.styleee4 {
+    margin-top: 29px;
+}
+
+.containerx h1 {
+    font-size: 12px;
+    margin-top: 7px;
+    font-family: 'Poppins', sans-serif;
+}

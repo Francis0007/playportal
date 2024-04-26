@@ -1,0 +1,134 @@
+body {
+        background-image: url(../../assets/images/bgimg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: max-content;
+        font-family: 'Poppins', sans-serif;
+    }
+    @media screen and (max-width: 767px) {
+        body {
+            background-size: contain;
+            background-repeat: repeat-y;
+        }
+    }
+h1{
+    font-size: 28px;
+    color: #783201;
+    font-family: 'Poppins', sans-serif;
+}
+.textss {
+    font-size: 12px;
+    text-align: left;
+    color: #783201;
+}
+
+input[type="text"] {
+    border-radius: 20px;
+    border: 2px solid #FFA101;
+    font-size: 15px;
+    width: 350px;
+    height: 40px;
+    padding: 0px 0px 0px 15px;
+    margin-bottom: 15px;
+    background-color: white;
+    font-family: 'Poppins', sans-serif;
+}
+select{
+    border-radius: 20px;
+    border: 2px solid #FFA101;
+    font-size: 15px;
+    width: 350px;
+    height: 40px;
+    padding: 0px 0px 0px 15px;
+    margin-bottom: 15px;
+    color: #FFA101;
+    background-color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+input[type="email"] {
+    border-radius: 20px;
+    border: 2px solid #FFA101;
+    font-size: 15px;
+    width: 350px;
+    height: 40px;
+    padding: 0px 0px 0px 15px;
+    margin-bottom: 15px;
+    background-color: white;
+    font-family: 'Poppins', sans-serif;
+}
+input[type="password"] {
+    border-radius: 20px;
+    background-color: transparent;
+    border: 2px solid #FFA101;
+    font-size: 15px;
+    width: 350px;
+    height: 40px;
+    padding: 0px 0px 0px 15px;
+    margin-bottom: 15px;
+    background-color: white;
+}
+
+
+button[type="submit"] {
+    border-radius: 5px;
+    background-image: linear-gradient( to top,
+    #FFA101, #ffD080);
+    font-size: 15px;
+    padding: 5px 15px 5px 15px;
+    margin-bottom: 15px;
+    color: white;
+    border: none;
+}
+
+::placeholder {
+    font-size: 15px;
+    margin-left: 20px;
+    color: #FFA101;
+    font-family: 'Poppins', sans-serif;
+}
+
+.video {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+iframe {
+    border-radius: 20px;
+}
+.leftvideo {
+    margin-right: 15px;
+}
+@media screen and (max-width: 767px) {
+    .video {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .leftvideo {
+        margin-left: 11px;
+    }
+    iframe {
+        width: 330px;
+    }
+    .rightvideo {
+        width: 320px;
+        margin-left: 12px;
+    }
+    form {
+        margin-top: -30px;
+    }
+    h1 {
+        font-size: 25px;
+    }
+}
+@media only screen 
+and (max-width: 375px) {
+    .leftvideo {
+        .video {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}

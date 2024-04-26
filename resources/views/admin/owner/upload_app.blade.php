@@ -81,7 +81,7 @@
                             </div>
 
                             <div class="form-group">
-                                <h5 for="app_name">Applicatio Name<span style="color: red">*</span></h5>
+                                <h5 for="app_name">Application Name<span style="color: red">*</span></h5>
                                 <input id="app_name" type="text" name="app_name" data-parsley-trigger="change" required="" placeholder="Enter Application Name" autocomplete="on" class="form-control">
                             </div>
 

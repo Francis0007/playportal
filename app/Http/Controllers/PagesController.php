@@ -23,7 +23,11 @@ class PagesController extends Controller
         $apps = App::where('status','1')->get();
         return view('pages.applications')->with(compact('apps'));
     }
-
+    
+    public function headapplication()
+    {
+        return view('pages.headapplication');
+    }
 
     public function saveContact(Request $request) { 
 

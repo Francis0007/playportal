@@ -3,132 +3,83 @@
 @section('content')
 <!-- wrapper  -->
 <!-- ============================================================== -->
-<div class="dashboard-wrapper" style="background: radial-gradient(circle, rgba(135,104,0,1) 1%, rgba(2,87,159,1) 100%)">
-    <div class="dashboard-ecommerce">
-        <div class="container-fluid dashboard-content ">
+
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                <div class="card" style="border: solid cadetblue 12px; border-style: outset; border-radius: 22px;">
-                    <h3 class="card-header">
-                        <i class="fa fa-plus-circle"></i> Upload Application 
-                        <a href="{{url ('/admin/dashboard/view_app')}}" class="fa fa-list btn btn-dark float-right"> View Application</a>
-                    </h3>
+                <div class="card">
+                    <h5 class="card-header"> Upload Application
+                        <a href="{{url ('/admin/dashboard/view_app')}}" class="upload"><i class="fa fa-list"></i> View Application</a>
+                    </h5>
                     <p class="mt-2 ml-3" style="color: red">Fields marked <span> * </span> are required</p>
                     <div class="card-body">
-                        <form enctype="multipart/form-data" action="{{url('/admin/dashboard/upload_app')}}" method="post" id="basicform" data-parsley-validate="">
+                        <form enctype="multipart/form-data" action="{{url('/admin/dashboard/upload_app')}}" method="post" id="basicform" data-parsley-validate="" data-parsley-max-file-size="1000" data-parsley-errors-container="#error-container">
                             @csrf
                             <div class="form-group">
                                 <select class="form-select" aria-label="Default select example" name="app_cat" id="app_cat">
                                     <option selected>Select App Category</option>
-                                    <option value="Art & Design">Art & Design</option>
-                                    <option value="Augmented reality">Augmented reality</option>
-                                    <option value="Auto & Vehicles">Auto & Vehicles</option>
-                                    <option value="Beauty">Beauty</option>
-                                    <option value="Books & Reference">Books & Reference</option>
-                                    <option value="Business">Business</option>
-                                    <option value="Comics">Comics</option>
-                                    <option value="Communication">Communication</option>
-                                    <option value="Dating">Dating</option>
-                                    <option value="Daydream">Daydream</option>
-                                    <option value="Education">Education</option>
-                                    <option value="Entertainment">Entertainment</option>
-                                    <option value="Events">Events</option>
-                                    <option value="Finance">Finance</option>
-                                    <option value="Food & Drink">Food & Drink</option>
-                                    <option value="Health & Fitness">Health & Fitness</option>
-                                    <option value="House & Home">House & Home</option>
-                                    <option value="Libraries & Demo">Libraries & Demo</option>
-                                    <option value="Lifestyle">Lifestyle</option>
-                                    <option value="Maps & Navigation">Maps & Navigation</option>
-                                    <option value="Medical">Medical</option>
-                                    <option value=">Music & Audio">Music & Audio</option>
-                                    <option value="News & Magazines">News & Magazines</option>
-                                    <option value="Parenting">Parenting</option>
-                                    <option value="Personalization">Personalization</option>
-                                    <option value="Photography">Photography</option>
-                                    <option value="Productivity">Productivity</option>
-                                    <option value="Shopping">Shopping</option>
-                                    <option value="Social">Social</option>
-                                    <option value="Sports">Sports</option>
-                                    <option value="Tools">Tools</option>
-                                    <option value="Travel & Local">Travel & Local</option>
-                                    <option value="Video Players & Editors">Video Players & Editors</option>
-                                    <option value="Wear OS by Google">Wear OS by Google</option>
-                                    <option value="Weather">Weather</option>
-                                    <option value="Games">Games</option>
-                                    <option value="Action">Action</option>
-                                    <option value="Adventure">Adventure</option>
-                                    <option value="Arcade">Arcade</option>
-                                    <option value="Board">Board</option>
-                                    <option value="Card">Card</option>
-                                    <option value="Casino">Casino</option>
-                                    <option value="Casual">Casual</option>
-                                    <option value="Educational">Educational</option>
-                                    <option value="Music">Music</option>
-                                    <option value="Puzzle">Puzzle</option>
-                                    <option value="Racing">Racing</option>
-                                    <option value="Role Playing">Role Playing</option>
-                                    <option value="Simulation">Simulation</option>
-                                    <option value="Sports">Sports</option>
-                                    <option value="Strategy">Strategy</option>
-                                    <option value="Trivia">Trivia</option>
-                                    <option value="Word">Word</option>
-                                    <option value="Children">Children</option>
-                                    <option value="Ages up to 5">Ages up to 5</option>
-                                    <option value="Ages 6–8">Ages 6–8</option>
-                                    <option value="Ages 9–12">Ages 9–12</option>
-                                    <option value="Movies">Movies</option>
+                                    <option value="PCGames">PCGames</option>
+                                    <option value="MobileGames">MobileGames</option>
+                                    <option value="WebGame">WebGames</option>
                                 </select>
-                                </div>
                             <div class="form-group">
                                 <h5 for="app_name">Application Name<span style="color: red">*</span></h5>
-                                <input id="app_name" type="text" name="app_name" data-parsley-trigger="change" required="" placeholder="Enter Application Name" autocomplete="on" class="form-control">
+                                <input id="app_name" type="text" name="app_name" data-parsley-trigger="change" required="" placeholder="Enter Application Name" autocomplete="on">
                             </div>
                             <div class="form-group">
                                 <h5 for="app_os">Application Operating Environment<span style="color: red">*</span></h5>
-                                <input id="app_os" type="text" name="app_os" data-parsley-trigger="change" required="" placeholder="Enter Application Operating Environment" autocomplete="on" class="form-control">
+                                <input id="app_os" type="text" name="app_os" data-parsley-trigger="change" required="" placeholder="Enter Application Operating Environment" autocomplete="on">
                             </div>
                             <div class="form-group">
                                 <h5 for="app_desc">Application Description<span style="color: red">*</span></h5>
-                                <input id="app_desc" name="app_desc" type="text" required="" placeholder="Enter Application Description" class="form-control">
+                                <textarea id="app_desc" name="app_desc" required="" placeholder="Enter Application Description" ></textarea>
                             </div>
                             <div class="form-group">
                                 <h5 for="app_owner">Application Owner Name<span style="color: red">*</span></h5>
-                                <input id="app_owner" name="app_owner" type="text" placeholder="Enter Application Owner Name" class="form-control">
+                                <input id="app_owner" name="app_owner" type="text" placeholder="Enter Application Owner Name">
                             </div>
                             <div class="form-group">
                                 <h5 for="owner_email">Email<span style="color: red">*</span></h5>
-                                <input id="owner_email" name="owner_email" type="email" required="" placeholder="Enter Application Owner Email" class="form-control">
+                                <input id="owner_email" name="owner_email" type="email" required="" placeholder="Enter Application Owner Email">
                             </div>
                             <div class="form-group">
                                 <h5 for="owner_number">Number<span style="color: red">*</span></h5>
-                                <input id="owner_number" name="owner_number" type="number" required="" placeholder="Enter Application Owner Number" class="form-control">
+                                <input id="owner_number" name="owner_number" type="number" required="" placeholder="Enter Application Owner Number">
                             </div>
                             <div class="form-group">
                                 <h5 for="icon_picture">Icon Picture<span style="color: red">*</span></h5>
-                                <input id="icon_picture" name="icon_picture" type="file" required="" class="form-control" onchange="previewImage(this, 'iconPreview')">
+                                <input id="icon_picture" name="icon_picture" type="file" required="" onchange="previewImage(this, 'iconPreview')">
                                 <img id="iconPreview" src="#" alt="Icon Preview" style="display: none; max-width: 200px; max-height: 200px;">
                             </div>
                             <div class="form-group">
                                 <h5 for="feature_picture">Feature Picture<span style="color: red">*</span></h5>
-                                <input id="feature_picture" name="feature_picture" type="file" required="" class="form-control" onchange="previewImage(this, 'featurePreview')">
+                                <input  name="feature_picture" type="file" required="" onchange="previewImage(this, 'featurePreview')">
                                 <img id="featurePreview" src="#" alt="Feature Preview" style="display: none; max-width: 200px; max-height: 200px;">
                             </div>
                             <div class="form-group">
                                 <h5 for="gameplay_screenshots">Gameplay Screenshots (up to 8)</h5>
-                                <input id="gameplay_screenshots" name="gameplay_screenshots[]" type="file" multiple class="form-control" onchange="previewImages(this, 'screenshotPreview')">
-                                <div id="screenshotPreview" class="row">
+                                <input  name="gameplay_screenshots[]" type="file" id="fileInput" multiple>
+                                <div id="previewContainer"></div>
                                     <!-- Preview images will be displayed here -->
                                 </div>
                             </div>
                             <div class="form-group">
-                                <h5 for="compressed_file">File (.zip, .exe, .apk, .rar etc)</h5>
-                                <input id="compressed_file" name="file" type="file" required="" class="form-control">
+                                <h5 for="compressed_file">Compressed File (ZIP) - Up to 1 GB</h5>
+                                <input id="compressed_file" name="compressed_file" type="file" required="">
+                                <!-- Loading indicator -->
+                                <div id="upload-progress" style="display: none;">
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <p id="upload-status">Uploading...</p>
+                                </div>
                             </div>
+                            
+                            <div id="error-container"></div>
+                            <!-- Submit button -->
                             <div class="row">
                                 <div class="col-md-12">
                                     <p class="text-center">
                                         <button type="submit" class="btn btn-space btn-primary">Upload Application</button>
-                                        <button class="btn btn-space btn-secondary">Cancel</button>
+                                        <button class="cancel">Cancel</button>
                                     </p>
                                 </div>
                             </div>
@@ -168,5 +119,70 @@
             reader.readAsDataURL(input.files[i]);
         }
     }
+</script>
+<!-- JavaScript for showing/hiding loading indicator -->
+<script>
+let dragged;
+
+document.addEventListener('dragstart', function(event) {
+    dragged = event.target;
+    event.target.style.opacity = '0.5';
+});
+
+document.addEventListener('dragend', function(event) {
+    event.target.style.opacity = '';
+});
+
+document.addEventListener('dragover', function(event) {
+    event.preventDefault();
+});
+
+document.addEventListener('drop', function(event) {
+    event.preventDefault();
+    if (event.target.classList.contains('draggable')) {
+        const rect = event.target.getBoundingClientRect();
+        const midY = rect.y + rect.height / 2;
+        if (event.clientY > midY) {
+            event.target.parentNode.insertBefore(dragged, event.target.nextSibling);
+        } else {
+            event.target.parentNode.insertBefore(dragged, event.target);
+        }
+    }
+});
+
+const fileInput = document.getElementById('fileInput');
+const previewContainer = document.getElementById('previewContainer');
+
+fileInput.addEventListener('change', function() {
+    const files = this.files;
+    
+    // Clear previous previews
+    previewContainer.innerHTML = '';
+
+    for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            const preview = document.createElement('img');
+            preview.src = e.target.result;
+            preview.classList.add('draggable');
+            preview.draggable = true;
+            previewContainer.appendChild(preview);
+        };
+
+        reader.readAsDataURL(file);
+    }
+});
+
+
+    document.getElementById('basicform').addEventListener('submit', function(event) {
+        // Show loading indicator when the form is submitted
+        document.getElementById('upload-progress').style.display = 'block';
+        document.getElementById('upload-status').innerText = 'Uploading...';
+
+        // Disable submit button to prevent multiple submissions
+        document.getElementById('upload-button').setAttribute('disabled', 'disabled');
+    });
 </script>
 @endsection

@@ -1219,15 +1219,23 @@ Legends
 Top Header
 -------------------------*/
 
-.dashboard-header {}
 
+.dashboard-header {
+    border: 10px 10px 10px 10px;
+    background-color: #F6F6F6;
+}
+@media screen and (max-width: 767px) {
+    .dashboard-header .navbar {
+    height: 40px;
+}
+}
 .dashboard-header .navbar {
     padding: 0px;
-    border-bottom: 1px solid #e6e6f2;
-    -webkit-box-shadow: 0px 0px 28px 0px rgba(82, 63, 105, 0.13);
-    box-shadow: 0px 0px 28px 0px rgba(82, 63, 105, 0.13);
+    -webkit-box-shadow: #F6F6F6;
+    box-shadow: #F6F6F6;
     -webkit-transition: all 0.3s ease;
     min-height: 60px;
+    background-color: #F6F6F6;
 }
 
 
@@ -1242,6 +1250,7 @@ Top Header
     text-transform: uppercase;
     font-weight: 700;
     color: #007bff;
+    background-color: #F6F6F6;
 }
 .navbar-brand:hover{
     color: #007bff;

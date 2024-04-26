@@ -3,9 +3,18 @@
 
 <head>
 	<title>PlayVerse</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
-	<meta name="keywords" content="Goggles a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+    <link
+      rel="icon"
+      href="{{asset('front_assets/images/top.png')}}"
+      sizes="32x32"
+      type="image/png"
+    />
+	<meta name="keywords" content="Googles a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 	<script>
 		addEventListener("load", function () {
@@ -21,6 +30,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="{{asset('front_assets/css/style6.css')}}" rel='stylesheet' type='text/css' />
     <link href="{{asset('front_assets/css/contact.css')}}" rel='stylesheet' type='text/css' />
 	<link rel="stylesheet" href="{{asset('front_assets/css/shop.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{asset('front_assets/css/application.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{asset('front_assets/css/welcome.css')}}" type="text/css" />
 	<link rel="stylesheet" href="{{asset('front_assets/css/owl.carousel.css')}}" type="text/css" media="all">
 	<link rel="stylesheet" href="{{asset('front_assets/css/owl.theme.css')}}" type="text/css" media="all">
 	<link href="{{asset('front_assets/css/style.css')}}" rel='stylesheet' type='text/css' />

@@ -1,4 +1,9 @@
-
+body {
+    background-image: url(../../assets/images/bgimg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: max-content;
+    font-family: 'Poppins', sans-serif;}
 .mobile-nav-button {
 		position: absolute;
 		right: 355px;

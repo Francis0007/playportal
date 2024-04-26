@@ -1,17 +1,15 @@
 @extends('admin.layouts.master')
-@section('title','View Application')
+@section('title', 'View Application')
 @section('content')
 <!-- wrapper  -->
 <!-- ============================================================== -->
-<div class="dashboard-wrapper" style="background: radial-gradient(circle, rgba(135,104,0,1) 1%, rgba(2,87,159,1) 100%)">
-    <div class="dashboard-ecommerce">
-        <div class="container-fluid dashboard-content ">
+
             <!-- basic table  -->
             <!-- ============================================================== -->
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                <div class="card" style="border: solid cadetblue 12px; border-style: outset; border-radius: 22px;">
+                <div class="card">
                     <h5 class="card-header">View Application
-                        <a href="{{url ('/admin/dashboard/upload_app')}}" class="fa fa-plus-circle btn btn-dark float-right"> Upload Application</a>
+                        <a href="{{ url('/admin/dashboard/upload_app') }}" class="upload"> Upload Application</a>
                     </h5>
                     @if(Session::has('flash_message_error'))
                     <div class="alert alert-sm alert-danger alert-block" role="alert">
@@ -44,12 +42,15 @@
                                         <th>App Owner</th>
                                         <th>Owner E-mail</th>
                                         <th>Owner Number</th>
-                                        <th>Image</th>
+                                        <th>Icon Image</th>
+                                        <th>Feature Image</th>
+                                        <th>Gameplay Screenshots</th>
+                                        <th>Compressed File</th>
                                         <th>Action</th>
                                     </tr>
-                                </thead>
-                                @foreach($apps as $app)
+                                    </thead>
                                 <tbody>
+                                    @forelse($apps as $app)
                                     <tr>
                                         <td>S - {{$app->id}}</td>
                                         <td>{{$app->app_name}}</td>
@@ -59,32 +60,38 @@
                                         <td>{{$app->app_owner}}</td>
                                         <td>{{$app->owner_email}}</td>
                                         <td>{{$app->owner_number}}</td>
-                                        <td>
-                                            @if(!empty($app->image))
-                                                <button onclick="openImageWindow('{{ asset($app->image) }}')">View Image</button>
-                                            @endif
-                                        </td> 
-                                        <td>
-                                            <a class="btn btn-primary" href="#">Edit</a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                           
-                                <tfoot>
+                                            <td>
+                                                @if(!empty($app->icon_picture))
+                                                    <button onclick="openImageWindow('{{ asset($app->icon_picture) }}')">View Icon Image</button>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if(!empty($app->feature_picture))
+                                                    <button onclick="openImageWindow('{{ asset($app->feature_picture) }}')">View Feature Image</button>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if(!empty($app->gameplay_screenshots))
+                                                    @foreach(json_decode($app->gameplay_screenshots) as $screenshot)
+                                                        <button onclick="openImageWindow('{{ asset($screenshot) }}')">View Screenshot</button>
+                                                    @endforeach
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if(!empty($app->compressed_file))
+                                                    <a href="{{ asset($app->compressed_file) }}" class="btn btn-primary" download>Download Compressed File</a>
+                                                @endif
+                                            </td>
+                                            <!-- <td>
+                                                <a class="btn btn-primary" href="{{ url('/admin/dashboard/edit_app/'.$app->id) }}">Edit</a>
+                                            </td> -->
+                                            </tr>
+                                    @empty
                                     <tr>
-                                        <th>Application ID</th>
-                                        <th>App Name</th>
-                                        <th>App Category</th>
-                                        <th>App OS</th>
-                                        <th>App Description</th>
-                                        <th>App Owner</th>
-                                        <th>Owner E-mail</th>
-                                        <th>Owner Number</th>
-                                        <th>Image</th>
-                                        <th>Action</th>
+                                        <td colspan="8">No apps uploaded</td>
                                     </tr>
-                                </tfoot>
+                                    @endforelse
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -94,11 +101,82 @@
             <!-- end basic table  -->
         </div>
     </div>
+</div>
 
-    <script>
-        function openImageWindow(imageUrl) {
-            window.open(imageUrl, '_blank');
-        }
-    </script>
+<script>
+    function openImageWindow(imageUrl) {
+        window.open(imageUrl, '_blank');
+    }
+
+    $(document).ready(function() {
+        $('#fetchUploadedAppsBtn').click(function() {
+            $.ajax({
+                url: "{{ route('admin.my_uploaded_apps') }}",
+                type: "GET",
+                success: function(response) {
+                    var apps = response.apps;
+                    var html = '<h3>My Uploaded Apps</h3>';
+                    $.each(apps, function(index, app) {
+                        html += '<div class="card">';
+                        html += '<div class="card-header">' + app.app_name + '</div>';
+                        html += '<div class="card-body">' + app.app_desc + '</div>';
+                        html += '</div>';
+                    });
+                    $('#uploadedAppsContainer').html(html);
+                },
+                error: function(xhr) {
+                    console.log(xhr.responseText);
+                }
+            });
+        });
+    });
+    $(document).ready(function() {
+        $('#fileUploadForm').submit(function(e) {
+            e.preventDefault();
+            var formData = new FormData(this);
+            $.ajax({
+                url: "{{ route('upload_zip') }}",
+                type: "POST",
+                data: formData,
+                contentType: false,
+                processData: false,
+                xhr: function() {
+                    var xhr = new window.XMLHttpRequest();
+                    xhr.upload.addEventListener("progress", function(evt) {
+                        if (evt.lengthComputable) {
+                            var percentComplete = evt.loaded / evt.total;
+                            percentComplete = parseInt(percentComplete * 100);
+                            $('#progressBar').width(percentComplete + '%');
+                            $('#progressText').text(percentComplete + '%');
+                        }
+                    }, false);
+                    return xhr;
+                },
+                beforeSend: function() {
+                    $('#progressContainer').show();
+                },
+                success: function(response) {
+                    // Handle success
+                    alert('File uploaded successfully!');
+                },
+                error: function(xhr, status, error) {
+                    // Handle error
+                    alert('An error occurred: ' + error);
+                }
+            });
+        });
+    });
+</script>
+
+
+
+
+
+   
+
+
+
+<!-- Add the script for handling the AJAX request -->
+
 
 @endsection

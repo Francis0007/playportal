@@ -1,3 +1,6 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
 #notifDiv {
     z-index: 10000;
     display: none;
@@ -8,8 +11,223 @@
     top: 80%; left: 5%;
     color: white;
     padding: 5px 20px;
+    font-family: 'Poppins', sans-serif;
 }
-
+.cancel {
+    background-color: red;
+    padding: 5px 10px 5px 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    margin-top: -3px;
+}
 .slow .toggle-group {
     transition: left 0.7s; -webkit-transition: left 0.7s;
 }
+footer {
+    background-color: none;
+    margin: 0;
+    border-radius: 30px 30px 0px 0px;
+    width: 100%;
+    height: 80px;
+}
+
+footer p{
+    margin-top: -5px;
+    text-align: center;
+}
+
+
+.navbar {
+    border-radius: 0px 0px 30px 30px;
+    background-color: #eeeeee;
+    height: 80px;
+}
+
+
+
+@media screen and (max-width: 767px) {
+    .navbar {
+        height: 80px !important;
+    }
+    .linksoncenter {
+        display: none;
+    }
+    }
+
+    .linksoncenter {
+        gap: 20px;
+        margin-left: 20px;
+      }
+      .linksoncenter{
+        font-size: 17px;
+        color: orange;
+        margin-left: 15px;
+      }
+      .linksoncenter a{
+        font-size: 17px;
+        color: orange;
+        margin-left: 15px;
+      }
+      .upload {
+        font-size: 20px;
+        background-image: linear-gradient( to top,
+        #FFA101, #ffD080);
+        padding: 5px 15px 5px 15px;
+        border-radius: 5px;
+        margin-top: 30px;
+        color: white;
+        float: right;
+        margin-top: 0px;
+      }
+      .upload:hover {
+        color: white !important;
+      }
+
+      h5 {
+        font-size: 20px !important;
+        margin-top: 3px;
+      }
+
+      @media screen and (max-width: 767px) {
+        h5{
+            font-size: 10px;
+        }
+        .upload {
+            font-size: 12px;
+            padding: 0px 5px 0px 5px;
+        }
+        .view {
+            font-size: 10px;
+            padding: 0px 5px 0px 5px;  
+        }
+        th{
+            font-size: 13px;
+        }
+        td{
+            font-size: 13px;
+        }
+      }
+
+      input[type="text"]{
+        border-radius: 10px;
+        background-color: transparent;
+        border: 2px solid rgb(199, 199, 199);
+        font-size: 15px;
+        width: 95%;
+        height: 40px;
+        padding: 0px 0px 0px 15px;
+        margin-bottom: 15px;
+    }
+    textarea {
+        width: 95%;
+        border: 2px solid rgb(199, 199, 199);
+        border-radius: 10px;
+        height: 120px;
+    }
+    select{
+        border-radius: 10px;
+        background-color: transparent;
+        border: 2px solid rgb(199, 199, 199);
+        font-size: 15px;
+        width: 95%;
+        height: 40px;
+        padding: 0px 0px 0px 15px;
+        margin-bottom: 15px;
+        color: rgb(161, 159, 159);
+    }
+    
+    input[type="email"] {
+        border-radius: 10px;
+        background-color: transparent;
+        border: 2px solid rgb(199, 199, 199);
+        font-size: 15px;
+        width: 95%;
+        height: 40px;
+        padding: 0px 0px 0px 15px;
+        margin-bottom: 15px;
+    }
+
+    input[type="number"] {
+        border-radius: 10px;
+        background-color: transparent;
+        border: 2px solid rgb(199, 199, 199);
+        font-size: 15px;
+        width: 95%;
+        height: 40px;
+        padding: 0px 0px 0px 15px;
+        margin-bottom: 15px;
+    }
+    input[type="file"] {
+        border-radius: 10px;
+        background-color: transparent;
+        border: 2px solid rgb(199, 199, 199);
+        font-size: 15px;
+        width: 95%;
+        height: 40px;
+        padding: 0px 0px 0px 15px;
+        margin-bottom: 15px;
+    }
+    
+    button[type="submit"] {
+        border-radius: 5px;
+        background-image: linear-gradient( to top,
+        #FFA101, #ffD080);
+        font-size: 15px;
+        padding: 5px 15px 5px 15px;
+        margin-bottom: 15px;
+        color: white;
+        border: none;
+    }
+    
+    ::placeholder {
+        font-size: 15px;
+        margin-left: 20px;
+        color: #FFA101;
+    }
+
+    #previewContainer {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .draggable {
+        width: 250px;
+        height: 350px;
+        margin: 10px;
+        cursor: move;
+    }
+    
+
+    .username {
+        font-size: 14px;
+        margin-right: 10px;
+        margin-top: 15px;
+    }
+    @media screen and (max-width: 767px) {
+        .username {
+            display: none;
+        }
+    }
+    @media only screen
+     and (max-width: 375px) {
+        .username {
+            display: none;
+        }
+    }
+    .rightnav {
+        display: flex;
+    }
+
+    .circle {
+        border-radius: 50%;
+        width: 55px;
+        height: 55px;
+        border: 1px solid rgb(172, 171, 171);
+        text-align: center;
+        text-decoration: none;
+        background-color: white;
+      }
+      .circle i {
+        margin-top: 9px;
+      }

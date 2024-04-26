@@ -4,7 +4,16 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
+    <link
+      rel="icon"
+      href="{{asset('front_assets/images/top.png')}}"
+      sizes="32x32"
+      type="image/png"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}">
     <link href="{{asset('assets/vendor/fonts/circular-std/style.css')}}" rel="stylesheet">
@@ -12,6 +21,8 @@
     <link rel="stylesheet" href="{{asset('assets/vendor/fonts/fontawesome/css/fontawesome-all.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendor/charts/chartist-bundle/chartist.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendor/charts/morris-bundle/morris.css')}}">
+    <link rel="stylesheet" href="{{asset('front_assets/css/application.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{asset('front_assets/css/dashboard.css')}}" type="text/css" />
     <link rel="stylesheet" href="{{asset('assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendor/charts/c3charts/c3.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendor/fonts/flag-icon-css/flag-icon.min.css')}}">

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UploaderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,9 @@ Route::get('/super_admin/dashboard/update-app-status','OwnerController@updateSta
 // Uploader Routes:
 Route::match(['get','post'],'/admin/dashboard/upload_app', 'UploaderController@Upload_app');
 Route::match(['get', 'post'], '/admin/dashboard/view_app', 'UploaderController@view_app');
+Route::match(['get', 'post'], '/admin/dashboard/applicationss', 'UploaderController@applicationss');
+Route::get('/view_uploaded_app/{appId}', 'UploaderController@viewUploadedApp')->name('view.uploaded.app');
+
 
 // Payment Routes:
 Route::match(['get', 'post'], '/admin/dashboard/payment', 'UploaderController@payment');
@@ -53,6 +57,19 @@ Route::match(['get','post'],'/admin/dashboard','AdminController@index');
 Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
 Route::get('/applications', 'PagesController@applications');
+Route::get('/headapplication', 'PagesController@headapplication');
 
 // Message Route:
 Route::post('/contact-us', 'PagesController@saveContact');
+
+//Edit Routes
+Route::get('/admin/dashboard/edit_app/{id}', 'UploaderController@edit_app');
+Route::post('/admin/dashboard/update_app/{id}', 'UploaderController@update_app');
+
+//View Routes
+Route::get('/admin/dashboard/my_uploaded_apps', 'UploaderController@my_uploaded_apps')->name('admin.my_uploaded_apps');
+
+//Analytics
+Route::get('/admin/analytics', 'AnalyticsController@index')->name('admin.analytics');
+
+Route::post('/upload-zip', [UploaderController::class, 'uploadZip'])->name('upload_zip');
